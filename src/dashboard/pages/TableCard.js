@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import TableInfo from '../components/TableInfo';
+import ButtonAdd from '../components/ButtonAdd';
 
-const TableCard = () => {
+const TableCard = (props) => {
     return (
         <div className=' w-full'>
             <div className=' mx-auto pt-10   xl:px-16'>
@@ -9,6 +10,7 @@ const TableCard = () => {
                     <div className="overflow-x-auto shadow-md sm:rounded-lg">
                         <div className="inline-block min-w-full align-middle">
                             <div className="overflow-hidden ">
+                                <ButtonAdd onClick={props.onShowModal} />
                                 <table className="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
                                     <thead className="bg-gray-100 dark:bg-gray-700">
                                         <tr>
@@ -27,10 +29,6 @@ const TableCard = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                                        <TableInfo />
-                                        <TableInfo />
-                                        <TableInfo />
-                                        <TableInfo />
                                         <TableInfo />
                                     </tbody>
                                 </table>
