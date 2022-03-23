@@ -16,7 +16,7 @@ function App() {
   const ctx = useContext(AuthContext);
   return (
     <BrowserRouter>
-      <Header isAuthenticated={undefined} onLogout={undefined} />
+      <Header />
       <Routes>
         <Route path="Login" element={!ctx.isLoggedIn && <Login />}></Route>
         <Route path="/" element={ctx.isLoggedIn && <HomePage />}></Route>

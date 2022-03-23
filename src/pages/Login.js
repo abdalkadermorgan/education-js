@@ -1,5 +1,4 @@
-import React, { Component, useContext, useEffect, useReducer, useRef, useState } from 'react'
-import Header from "../components/MainHeader/Header";
+import React, {  useContext, useEffect, useReducer, useRef, useState } from 'react'
 import Input from '../components/UI/Input';
 import AuthContext from '../store/auth-context';
 
@@ -101,7 +100,6 @@ const Login = (props) => {
     return (
         <div>
             {/* <Header /> */}
-
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>

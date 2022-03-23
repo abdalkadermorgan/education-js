@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import AuthContext from "../store/auth-context";
+import AvilableCourse from "../components/courses/AvailableCourse";
 
 const HomePage = (props) => {
     const authCtx = useContext(AuthContext);
@@ -56,20 +57,7 @@ const HomePage = (props) => {
                         </div>
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-20">
-                        <div>
-                            {/* <!-- Blog 1 --> */}
-                            <Card />
-                        </div>
-
-                        <div>
-                            {/* <!-- Blog 2 --> */}
-                            <Card />
-                        </div>
-
-                        <div>
-                            {/* <!-- Blog 3 --> */}
-                            <Card />
-                        </div>
+                        <AvilableCourse />
                     </div>
                 </div>
             </section>

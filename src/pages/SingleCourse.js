@@ -1,5 +1,3 @@
-import React, { Component } from 'react'
-import Header from '../components/MainHeader/Header';
 const SingleCourse = () => {
 
     return (

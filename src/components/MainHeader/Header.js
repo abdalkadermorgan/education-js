@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Navigation from './Navigation';
+import './Header.css'
 
 
 
@@ -28,12 +29,31 @@ const Header = (props) => {
                         </button>
                     </div>
                     <Navigation isLoggedIn={props.isAuthenticated} onLogout={props.onLogout} />
-                    <div className="hidden md:flex items-center justify-end">
-                        <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                    <div className="hover-dropdown hidden md:flex items-center justify-end relative">
+                        <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 ">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
+                            <span className='absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center'>3</span>
                         </a>
+                        <div className='hover-dropdown-menu'>
+                            <div className='menu-content'>
+                                <div className='menu-item'>
+                                    <a className='menu-item'>
+                                        <div className='item-img'>
+                                            <img src='https://exapp.io/4X8wN/assets/images/course/course_66_552_1_imq123ages.jpeg' />
+                                        </div>
+                                        <div className='flex flex-col ml-auto mr-2'>
+                                            <h6>عنوان الدورة</h6>
+                                            <small>شرح عن الدورة</small>
+                                        </div>
+                                        <span className='text-red flex  flex-col items-center'>
+                                            20$
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
