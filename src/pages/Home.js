@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Card from "../components/UI/Card";
 
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
