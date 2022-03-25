@@ -24,6 +24,7 @@ const Input = React.forwardRef((props, ref) => {
                 onChange={props.onChange}
                 onBlur={props.onBlur}
                 className={props.className}
+                // autoComplete="off"
             />
         </div>
     )

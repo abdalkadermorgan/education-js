@@ -31,6 +31,7 @@ const Login = (props) => {
     // const [emailIsValid, setEmailIsValid] = useState('');
     // const [enteredPassword, setEnteredPassword] = useState('');
     // const [passwordIsValid, setPasswordIsValid] = useState('');
+
     const [formIsValid, setFormIsValid] = useState(false);
 
     const [emailState, dispatchEmail] = useReducer(emailReducer, {
@@ -49,6 +50,12 @@ const Login = (props) => {
 
     useEffect(() => {
         console.log('EFFECT RUNNING');
+
+        const storedUserLogged = localStorage.getItem('isLoggedIn');
+
+        if (storedUserLogged === '1') {
+            window.location.pathname = "Courses";
+        }
 
         return () => {
             console.log('EFFECT CLEANUP');
@@ -88,6 +95,8 @@ const Login = (props) => {
     }
 
     const submitHandler = (event) => {
+
+
         event.preventDefault();
         if (formIsValid) {
             authCtx.onLogin(emailState.value, passwordState.value);

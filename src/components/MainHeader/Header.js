@@ -6,6 +6,9 @@ import './Header.css'
 
 
 const Header = (props) => {
+   
+ 
+
     const [isActive, setActive] = useState(false);
     const cartCtx = useContext(CartContext);
     const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
@@ -14,7 +17,10 @@ const Header = (props) => {
     const toggleclassName = () => {
         setActive(!isActive);
     };
+
+    
     return (
+       
         <header className="relative bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
