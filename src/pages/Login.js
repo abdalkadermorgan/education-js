@@ -1,4 +1,4 @@
-import React, {  useContext, useEffect, useReducer, useRef, useState } from 'react'
+import React, { useContext, useEffect, useReducer, useRef, useState } from 'react'
 import Input from '../components/UI/Input';
 import AuthContext from '../store/auth-context';
 
@@ -54,8 +54,9 @@ const Login = (props) => {
         const storedUserLogged = localStorage.getItem('isLoggedIn');
 
         if (storedUserLogged === '1') {
-            window.location.pathname = "Courses";
+            window.location.pathname = "/";
         }
+
 
         return () => {
             console.log('EFFECT CLEANUP');

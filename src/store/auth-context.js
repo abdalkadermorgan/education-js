@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AuthContext = React.createContext({
     isLoggedIn: false,
     onLogout: () => { },
-    onLogin: (email, password) => { 
+    onLogin: (email, password) => {
     }
 });
 
@@ -11,7 +11,7 @@ export const AuthContextProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     useEffect(() => {
 
-        var array_emails = [
+        const array_emails = [
             {
                 id: 1,
                 email: "user1@gmail.com",
@@ -30,22 +30,24 @@ export const AuthContextProvider = (props) => {
         ];
         localStorage.setItem("validEmails", JSON.stringify(array_emails)); //store validEmails
 
-        
+
+
         const storedUserLogged = localStorage.getItem('isLoggedIn');
 
-        if (storedUserLogged == '1') {
+        if (storedUserLogged === '1') {
             setIsLoggedIn(true);
         }
     }, []);
 
     const loginHandler = (email, password) => {
 
-        var storedEmails = JSON.parse(localStorage.getItem("validEmails")); //get them back
-           
-        storedEmails.map( (object) => {
+        const storedEmails = JSON.parse(localStorage.getItem("validEmails")); //get them back
+
+
+        storedEmails.map((object) => {
             console.log(object);
 
-            if(email === object.email && password === object.password) {
+            if (email === object.email && password === object.password) {
 
                 localStorage.setItem('isLoggedIn', '1');
                 setIsLoggedIn(true);
@@ -56,15 +58,18 @@ export const AuthContextProvider = (props) => {
                 // add to cart 
                 // add to session cart 
 
-                window.location.pathname = "Courses";
-        
+                window.location.pathname = "/";
+
+                sessionStorage.setItem("currentUser", JSON.stringify(object));
             }
-        } );
+        });
+
 
     }
     const logoutHandler = () => {
         localStorage.removeItem('isLoggedIn')
         setIsLoggedIn(false);
+        console.log(logoutHandler)
         window.location.pathname = "Login";
     }
 

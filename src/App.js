@@ -18,13 +18,13 @@ function App() {
   const ctx = useContext(AuthContext);
   const checkRoute = useContext(CheckRouteContext);
 
-  console.log(checkRoute);
-  
+  // console.log(checkRoute);
+
 
   return (
     <BrowserRouter>
-     
-      { checkRoute.routePath !== "/Dashboard" ? <Header /> : null}
+
+      {checkRoute.routePath !== "/Dashboard" ? <Header /> : null}
       <Routes>
         {<Route path="Login" element={!ctx.isLoggedIn && <Login />}></Route>}
         <Route path="/" element={ctx.isLoggedIn && <HomePage />}></Route>
