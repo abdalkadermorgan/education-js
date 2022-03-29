@@ -25,7 +25,7 @@ const HomePage = (props) => {
                 <SwiperSlide className="swiper-slide">
                     <img
                         className="w-full  h-[80vh] object-cover"
-                        src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                        src="https://images.unsplash.com/photo-1628671254495-328a0ea8d0f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1094&q=80"
                         alt=""
                     />
                 </SwiperSlide>

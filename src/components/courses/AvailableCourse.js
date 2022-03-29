@@ -41,6 +41,7 @@ const AvilableCourse = () => {
     const courseList = INFO_COURSE.map((course) => (
         <CourseItem
             key={course.id}
+            id={course.id}
             category={course.category}
             name={course.name}
             description={course.description}
