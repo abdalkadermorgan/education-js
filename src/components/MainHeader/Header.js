@@ -1,7 +1,9 @@
 import React, { useState, useContext } from 'react';
 import Navigation from './Navigation';
 import CartContext from '../../store/cart-context';
+import CartItem from '../cart/CartItem';
 import './Header.css'
+import CartDropdown from './CartDropdown';
 
 
 
@@ -9,14 +11,42 @@ const Header = (props) => {
 
     // const [isActive, setActive] = useState(false);
     const cartCtx = useContext(CartContext);
+    const hasItems = cartCtx.items.length > 0;
     const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
         return curNumber + item.amount;
     }, 0);
+    // const price = `$${cartCtx.totalAmount.toFixed(2)}`;
     // console.log(numberOfCartItems);
     // const toggleclassName = () => {
     //     setActive(!isActive);
     // };
 
+    const addToCartHandler = (amount) => {
+        cartCtx.addItem({
+            id: props.id,
+            name: props.name,
+            amount: amount,
+            price: props.price,
+            category: props.category,
+            img: props.img
+        });
+    };
+
+
+    const hoverItems = (
+        <div>
+            {cartCtx.items.map((item) => (
+                <CartDropdown
+                    key={item.id}
+                    name={item.name}
+                    price={item.price}
+                    category={item.category}
+                    img={item.img}
+                />
+            ))}
+        </div>
+    );
+    console.log(hoverItems)
 
     return (
 
@@ -45,24 +75,10 @@ const Header = (props) => {
                             </svg>
                             <span className='absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center'>{numberOfCartItems}</span>
                         </button>
-                        <div className='hover-dropdown-menu'>
-                            <div className='menu-content'>
-                                <div className='menu-item'>
-                                    <a className='menu-item'>
-                                        <div className='item-img'>
-                                            <img src='https://exapp.io/4X8wN/assets/images/course/course_66_552_1_imq123ages.jpeg' />
-                                        </div>
-                                        <div className='flex flex-col ml-auto mr-2'>
-                                            <h6>عنوان الدورة</h6>
-                                            <small>شرح عن الدورة</small>
-                                        </div>
-                                        <span className='text-red flex  flex-col items-center'>
-                                            20$
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <CartDropdown>
+                            {hoverItems}
+                        </CartDropdown>
+
                     </div>
 
                 </div>

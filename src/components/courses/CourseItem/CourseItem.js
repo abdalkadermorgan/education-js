@@ -5,13 +5,17 @@ import CourseItemForm from './CourseItemForm';
 
 const CourseItem = (props) => {
 	const cartCtx = useContext(CartContext);
-	const price = `$${props.pricing.toFixed(2)}`;
+
+
+	const price = `$${props.price.toFixed(2)}`;
 	const addToCartHandler = (amount) => {
 		cartCtx.addItem({
 			id: props.id,
 			name: props.name,
 			amount: amount,
-			pricing: props.price,
+			price: props.price,
+			category: props.category,
+			img: props.img
 		});
 	};
 	return (
@@ -36,9 +40,9 @@ const CourseItem = (props) => {
 						<div>
 							<CourseItemForm id={props.id} onAddToCart={addToCartHandler} />
 						</div>
-						<button className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">
+						{/* <button className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">
 							Add To Card
-						</button>
+						</button> */}
 					</div>
 				</div>
 			</div>
