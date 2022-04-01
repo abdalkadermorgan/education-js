@@ -21,33 +21,31 @@ const Header = (props) => {
     //     setActive(!isActive);
     // };
 
-    const addToCartHandler = (amount) => {
-        cartCtx.addItem({
-            id: props.id,
-            name: props.name,
-            amount: amount,
-            price: props.price,
-            category: props.category,
-            img: props.img
-        });
-    };
+    // const addToCartHandler = (amount) => {
+    //     cartCtx.addItem({
+    //         id: props.id,
+    //         name: props.name,
+    //         amount: amount,
+    //         price: props.price,
+    //         category: props.category,
+    //         img: props.img
+    //     });
+    // };
 
 
-    const hoverItems = (
-        <div>
-            {cartCtx.items.map((item) => (
-                <CartDropdown
-                    key={item.id}
-                    name={item.name}
-                    price={item.price}
-                    category={item.category}
-                    img={item.img}
-                />
-            ))}
-        </div>
-    );
-    console.log(hoverItems)
-
+    // const hoverItems = (
+    //     <div>
+    //         {cartCtx.items.map((item) => (
+    //             <CartDropdown
+    //                 key={item.id}
+    //                 name={item.name}
+    //                 price={item.price}
+    //                 category={item.category}
+    //                 img={item.img}
+    //             />
+    //         ))}
+    //     </div>
+    // );
     return (
 
         <header className="relative bg-white">
@@ -75,9 +73,9 @@ const Header = (props) => {
                             </svg>
                             <span className='absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center'>{numberOfCartItems}</span>
                         </button>
-                        <CartDropdown>
+                        {/* <CartDropdown>
                             {hoverItems}
-                        </CartDropdown>
+                        </CartDropdown> */}
 
                     </div>
 
