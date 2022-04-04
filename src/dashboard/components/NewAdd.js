@@ -23,11 +23,17 @@ const NewCourse = (props) => {
 
     return (
         <div>
-            <CourseAdd 
-                onSaveCourseData={saveCourseDataHandler}
-            />
+            {isEditing && (
+                <CourseAdd
+                    onSaveCourseData={saveCourseDataHandler}
+                    onCancel={stopEditingHandler}
+                />
+            )}
+
         </div>
     )
 
 
 }
+
+export default NewCourse;

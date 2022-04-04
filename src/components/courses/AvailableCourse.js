@@ -1,5 +1,8 @@
+import React, { useState, useEffect } from 'react'
+
 import Card from "../UI/Card";
 import CourseItem from "./CourseItem/CourseItem";
+
 
 const INFO_COURSE = [
     {
@@ -37,7 +40,16 @@ const INFO_COURSE = [
 
 ];
 
+localStorage.setItem('CourseInfo', JSON.stringify(INFO_COURSE))
+
 const AvilableCourse = () => {
+    const [courses, setCourses] = useState(INFO_COURSE);
+
+    const addCourseHandler = (course) => {
+        setCourses((prevCourses) => {
+            return [course, ...prevCourses]
+        });
+    };
     const courseList = INFO_COURSE.map((course) => (
         <CourseItem
             key={course.id}
@@ -57,5 +69,7 @@ const AvilableCourse = () => {
         </Card>
     );
 };
+
+
 
 export default AvilableCourse;
