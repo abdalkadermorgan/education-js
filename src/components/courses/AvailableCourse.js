@@ -39,8 +39,10 @@ const INFO_COURSE = [
     },
 
 ];
+localStorage.setItem('CourseInfo', JSON.stringify(INFO_COURSE));
 
-localStorage.setItem('CourseInfo', JSON.stringify(INFO_COURSE))
+const CourseInfoF = JSON.parse(localStorage.getItem("CourseInfo"));
+console.log(CourseInfoF)
 
 const AvilableCourse = () => {
     const [courses, setCourses] = useState(INFO_COURSE);
@@ -50,7 +52,7 @@ const AvilableCourse = () => {
             return [course, ...prevCourses]
         });
     };
-    const courseList = INFO_COURSE.map((course) => (
+    const courseList = CourseInfoF.map((course) => (
         <CourseItem
             key={course.id}
             id={course.id}
@@ -60,8 +62,20 @@ const AvilableCourse = () => {
             img={course.img}
             price={course.price}
         />
-
     ));
+    console.log(courseList)
+    // const courseList = INFO_COURSE.map((course) => (
+    //     <CourseItem
+    //         key={course.id}
+    //         id={course.id}
+    //         category={course.category}
+    //         name={course.name}
+    //         description={course.description}
+    //         img={course.img}
+    //         price={course.price}
+    //     />
+
+    // ));
 
     return (
         <Card>

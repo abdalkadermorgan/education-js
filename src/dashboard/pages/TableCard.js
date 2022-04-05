@@ -1,6 +1,7 @@
 import React from 'react'
 import TableInfo from '../components/TableInfo';
 import ButtonAdd from '../components/ButtonAdd';
+import NewCourse from '../components/NewAdd';
 
 const TableCard = (props) => {
     return (
@@ -10,7 +11,8 @@ const TableCard = (props) => {
                     <div className="overflow-x-auto shadow-md sm:rounded-lg">
                         <div className="inline-block min-w-full align-middle">
                             <div className="overflow-hidden ">
-                                <ButtonAdd onClick={props.onShowModal} />
+                                {/* <ButtonAdd onClick={props.onShowModal} /> */}
+                                <NewCourse onClick={props.onShowModal} />
                                 <table className="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
                                     <thead className="bg-gray-100 dark:bg-gray-700">
                                         <tr>
