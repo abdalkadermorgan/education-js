@@ -34,7 +34,12 @@ const CourseAdd = (props) => {
             // desc: enteredDesc,
         };
 
-        props.onSaveCourseData(courseData);
+        // props.onSaveCourseData(courseData);
+        const test = localStorage.getItem("CourseInfo");
+        const a = JSON.parse(test);
+        a.push(courseData)
+        localStorage.setItem("CourseInfo", JSON.stringify(a));
+
         setEnteredName('');
         setEnteredCategory('');
         setEnteredPrice('');
@@ -89,8 +94,8 @@ const CourseAdd = (props) => {
             </div>
             {/* </Modal> */}
         </form>
-    )
-}
+    );
+};
 
 
 export default CourseAdd;

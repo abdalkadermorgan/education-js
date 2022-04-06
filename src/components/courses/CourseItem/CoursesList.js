@@ -17,7 +17,7 @@ const CoursesList = (props) => {
                 />
             ))}
         </>
-    )
-}
+    );
+};
 
 export default CoursesList;

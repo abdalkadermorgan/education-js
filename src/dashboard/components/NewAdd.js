@@ -23,8 +23,8 @@ const NewCourse = (props) => {
     return (
         <div>
             {!isEditing && (
-                // <button onClick={startEditingHandler}>Add New Course</button>
-                <ButtonAdd onClick={startEditingHandler} />
+                <button onClick={startEditingHandler}>Add New Course</button>
+                // <ButtonAdd onClick={startEditingHandler} />
 
             )}
             {isEditing && (
