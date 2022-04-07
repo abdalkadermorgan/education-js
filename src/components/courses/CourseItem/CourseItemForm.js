@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 
 const CourseItemForm = (props) => {
-    const [amountIsValid, setAmountIsValid] = useState(true);
-    const enteredAmountNumber = useRef();
+    // const [amountIsValid, setAmountIsValid] = useState(true);
+    // const enteredAmountNumber = useRef();
 
     const submitHandler = (event) => {
         event.preventDefault();
