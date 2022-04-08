@@ -28,17 +28,17 @@ const cartReducer = (state, action) => {
     }
 
     // const removeItem = state.items.id
-    if (action.type === 'REMOVE') {
-        // if (state.item.find(item.id) === 1) {
-        //     items.splice(item);
+    // if (action.type === 'REMOVE') {
+    //     // if (state.item.find(item.id) === 1) {
+    //     //     items.splice(item);
 
-        //     return {
-        //         items,
-        //         totalAmount
-        //     }
-        // }
-        // console.log("test")
-    }
+    //     //     return {
+    //     //         items,
+    //     //         totalAmount
+    //     //     }
+    //     // }
+    //     // console.log("test")
+    // }
 
 
     return {

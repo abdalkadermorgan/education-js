@@ -42,9 +42,9 @@ import CourseItem from "./CourseItem/CourseItem";
 // localStorage.setItem('CourseInfo', JSON.stringify(INFO_COURSE));
 
 
-const AvilableCourse = () => {
+const AvilableCourse = (props) => {
     // const [courses, setCourses] = useState([]);
-
+    
     const CourseInfoF = JSON.parse(localStorage.getItem("CourseInfo"));
 
     // const addCourseHandler = (course) => {
@@ -63,7 +63,7 @@ const AvilableCourse = () => {
             price={course.price}
         />
     ));
-    console.log(courseList , "index ")
+    console.log(courseList.name , "index ")
     // const courseList = INFO_COURSE.map((course) => (
     //     <CourseItem
     //         key={course.id}

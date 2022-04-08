@@ -28,7 +28,7 @@ const CourseAdd = (props) => {
         event.preventDefault();
 
         const courseData = {
-            title: enterdName,
+            name: enterdName,
             category: enterdCategory,
             price: enteredPrice,
             // desc: enteredDesc,

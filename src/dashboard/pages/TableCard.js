@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TableInfo from '../components/Tables/TableInfo';
 import ButtonAdd from '../components/ButtonAdd';
 import NewCourse from '../components/NewAdd';
 
 const TableCard = (props) => {
-    const TableStorage = JSON.parse(localStorage.getItem("CourseInfo"));
-    const CourseTable = TableStorage.map((course, index) => (
+    const [items, setitems] = useState([]);
+
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem("CourseInfo"));
+        if (items) {
+            setitems(items);
+        }
+        
+    }, [])
+    
+    const CourseTable = items.map((course, index) => (
         <TableInfo 
         key= {index}
+        id={course.id}
         name={course.name}
         price={course.price}
         category={course.category}
