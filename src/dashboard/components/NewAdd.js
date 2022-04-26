@@ -2,9 +2,16 @@ import { useState } from "react"
 import CourseAdd from "./CourseAdd";
 import ButtonAdd from "./ButtonAdd";
 const NewCourse = (props) => {
+
+    console.log(props);
+
     const [isEditing, setIsEditing] = useState(false);
 
     const saveCourseDataHandler = (enteredCourseDate) => {
+
+        console.log(enteredCourseDate);
+
+        return;
         const courseData = {
             ...enteredCourseDate,
             id: Math.random().toString(),

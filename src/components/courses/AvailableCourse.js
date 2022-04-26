@@ -45,7 +45,7 @@ import CourseItem from "./CourseItem/CourseItem";
 const AvilableCourse = (props) => {
     // const [courses, setCourses] = useState([]);
     
-    const CourseInfoF = JSON.parse(localStorage.getItem("CourseInfo"));
+    const CourseInfoF = JSON.parse(localStorage.getItem("CourseInfo")) || [];
 
     // const addCourseHandler = (course) => {
     //     setCourses((prevCourses) => {
