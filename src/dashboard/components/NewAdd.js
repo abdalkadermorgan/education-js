@@ -9,7 +9,6 @@ const NewCourse = (props) => {
 
     const saveCourseDataHandler = (enteredCourseDate) => {
 
-        console.log(enteredCourseDate);
 
         return;
         const courseData = {
@@ -30,8 +29,8 @@ const NewCourse = (props) => {
     return (
         <div>
             {!isEditing && (
-                <button onClick={startEditingHandler}>Add New Course</button>
-                // <ButtonAdd onClick={startEditingHandler} />
+                // <button onClick={startEditingHandler}>Add New Course</button>
+                <ButtonAdd onClick={startEditingHandler} />
 
             )}
             {isEditing && (

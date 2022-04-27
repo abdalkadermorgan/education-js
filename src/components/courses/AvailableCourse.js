@@ -43,15 +43,8 @@ import CourseItem from "./CourseItem/CourseItem";
 
 
 const AvilableCourse = (props) => {
-    // const [courses, setCourses] = useState([]);
-    
     const CourseInfoF = JSON.parse(localStorage.getItem("CourseInfo")) || [];
 
-    // const addCourseHandler = (course) => {
-    //     setCourses((prevCourses) => {
-    //         return [course, ...prevCourses]
-    //     });
-    // };
     const courseList = CourseInfoF.map((course, index) => (
         <CourseItem
             key={index}
@@ -63,19 +56,7 @@ const AvilableCourse = (props) => {
             price={course.price}
         />
     ));
-    console.log(courseList.name , "index ")
-    // const courseList = INFO_COURSE.map((course) => (
-    //     <CourseItem
-    //         key={course.id}
-    //         id={course.id}
-    //         category={course.category}
-    //         name={course.name}
-    //         description={course.description}
-    //         img={course.img}
-    //         price={course.price}
-    //     />
-
-    // ));
+    console.log(courseList, "index ")
 
     return (
         <Card>
