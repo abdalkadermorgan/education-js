@@ -1,9 +1,7 @@
 import { useState } from "react"
-import CourseAdd from "./CourseAdd";
 import ButtonAdd from "./ButtonAdd";
-
-
-const NewCourse = (props) => {
+import InfoGraphicInfo from "./InfoGraphic/InfoGraphicInfo";
+const NewAddInfoGraphic = (props) => {
 
     console.log(props);
 
@@ -36,13 +34,14 @@ const NewCourse = (props) => {
 
             )}
             {isEditing && (
-                <CourseAdd
+                <InfoGraphicInfo
                     onSaveCourseData={saveCourseDataHandler}
                     onCancel={stopEditingHandler}
                 />
+                
             )}
         </div>
     );
 };
 
-export default NewCourse;
+export default NewAddInfoGraphic;

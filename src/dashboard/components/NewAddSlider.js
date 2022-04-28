@@ -1,9 +1,7 @@
 import { useState } from "react"
-import CourseAdd from "./CourseAdd";
 import ButtonAdd from "./ButtonAdd";
-
-
-const NewCourse = (props) => {
+import SliderInfo from "../components/Slider/SliderInfo";
+const NewSlider = (props) => {
 
     console.log(props);
 
@@ -36,7 +34,7 @@ const NewCourse = (props) => {
 
             )}
             {isEditing && (
-                <CourseAdd
+                <SliderInfo
                     onSaveCourseData={saveCourseDataHandler}
                     onCancel={stopEditingHandler}
                 />
@@ -45,4 +43,4 @@ const NewCourse = (props) => {
     );
 };
 
-export default NewCourse;
+export default NewSlider;

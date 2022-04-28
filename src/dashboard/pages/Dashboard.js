@@ -3,6 +3,8 @@ import CourseAdd from '../components/CourseAdd';
 import Sidebar from '../components/Sidebar';
 import TableCard from './TableCard';
 import Pagination from '../components/Pagination'
+import TableSlider from './TableSlider';
+import TableInfoGraphic from './TableInfographic';
 
 
 const Dashboard = () => {
@@ -22,6 +24,8 @@ const Dashboard = () => {
                 <div className='w-full mx-auto'>
                     <TableCard onShowModal={showModalHandler} />
                     <Pagination />
+                    <TableSlider />
+                    <TableInfoGraphic />
                 </div>
             </div>
         </Fragment>

@@ -9,6 +9,7 @@ import Courses from "./pages/Courses";
 import HomePage from "./pages/Home";
 import Login from "./pages/Login";
 import SingleCourse from "./pages/SingleCourse";
+import CartPage from "./pages/CartPage";
 import AuthContext from "./store/auth-context";
 import CartProvider from "./store/CartProvider";
 import CheckRouteContext from "./store/check-route-context";
@@ -62,6 +63,12 @@ function App() {
               <Route
                 path="Dashboard"
                 element={ctx.isLoggedIn && <DashboardApp />}
+              ></Route>
+            }
+            {
+              <Route
+                path="CartPage"
+                element={ctx.isLoggedIn && <CartPage />}
               ></Route>
             }
           </Routes>
