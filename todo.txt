@@ -1,0 +1,7 @@
+
+slider
+infografic
+delete item from cart
+cart page
+edit course
+single course
