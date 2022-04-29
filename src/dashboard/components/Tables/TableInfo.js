@@ -31,7 +31,7 @@ const TableInfo = (props) => {
             console.log(new_courses)
 
             localStorage.setItem("CourseInfo", JSON.stringify(new_courses));
-            window.location.reload();
+            // window.location.reload();
         }
     }
 

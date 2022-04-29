@@ -1,13 +1,14 @@
-import { Action } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 export const actionTypes = {
   SetSliders: "[SetSliders] Action",
+  SetCourses: "[SetCourses] Action",
 };
 
 const initialState = {
   sliders: [],
+  courses: [],
 };
 
 export const reducer = persistReducer(
@@ -15,15 +16,19 @@ export const reducer = persistReducer(
     storage,
     key: "root",
     debug: true,
-
-    // whitelist: ["user", "accessToken"],
+    whitelist: ["sliders", "courses"],
   },
   (state = initialState, action) => {
     switch (action.type) {
       case actionTypes.SetSliders: {
-        const sliders = action.payload?.sliders;
+        const sliders = action.payload.sliders;
 
         return { ...state, sliders };
+      }
+      case actionTypes.SetCourses: {
+        const courses = action.payload.courses;
+
+        return { ...state, courses };
       }
 
       default:
@@ -33,10 +38,17 @@ export const reducer = persistReducer(
 );
 
 export const Actions = {
-  setSliders: (silders) => {
+  setSliders: (sliders) => {
     return {
       type: actionTypes.SetSliders,
-      payload: { silders },
+      payload: { sliders },
+    };
+  },
+
+  SetCourses: (courses) => {
+    return {
+      type: actionTypes.SetCourses,
+      payload: { courses },
     };
   },
 };

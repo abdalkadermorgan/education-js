@@ -14,11 +14,17 @@ import AuthContext from "./store/auth-context";
 import CartProvider from "./store/CartProvider";
 import CheckRouteContext from "./store/check-route-context";
 import { reducer } from "./store/store";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
 
 const store = configureStore({
   reducer: reducer,
-});
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 
+});
+const persistor = persistStore(store);
 function App() {
   const ctx = useContext(AuthContext);
   const checkRoute = useContext(CheckRouteContext);
@@ -37,43 +43,45 @@ function App() {
 
   return (
     <Provider store={store}>
-      <CartProvider>
-        <BrowserRouter>
-          {cartIsShown && <Cart onClose={hideCartHandler} />}
-          {checkRoute.routePath !== "/Dashboard" ? (
-            <Header onShowCart={showCartHandler} />
-          ) : null}
-          <Routes>
-            {
+      <PersistGate persistor={persistor} loading={<div></div>}>
+        <CartProvider>
+          <BrowserRouter>
+            {cartIsShown && <Cart onClose={hideCartHandler} />}
+            {checkRoute.routePath !== "/Dashboard" ? (
+              <Header onShowCart={showCartHandler} />
+            ) : null}
+            <Routes>
+              {
+                <Route
+                  path="Login"
+                  element={!ctx.isLoggedIn && <Login />}
+                ></Route>
+              }
+              <Route path="/" element={ctx.isLoggedIn && <HomePage />}></Route>
               <Route
-                path="Login"
-                element={!ctx.isLoggedIn && <Login />}
+                path="Courses"
+                element={ctx.isLoggedIn && <Courses />}
               ></Route>
-            }
-            <Route path="/" element={ctx.isLoggedIn && <HomePage />}></Route>
-            <Route
-              path="Courses"
-              element={ctx.isLoggedIn && <Courses />}
-            ></Route>
-            <Route
-              path="Courses/SingleCourse"
-              element={ctx.isLoggedIn && <SingleCourse />}
-            ></Route>
-            {
               <Route
-                path="Dashboard"
-                element={ctx.isLoggedIn && <DashboardApp />}
+                path="Courses/SingleCourse"
+                element={ctx.isLoggedIn && <SingleCourse />}
               ></Route>
-            }
-            {
-              <Route
-                path="CartPage"
-                element={ctx.isLoggedIn && <CartPage />}
-              ></Route>
-            }
-          </Routes>
-        </BrowserRouter>
-      </CartProvider>
+              {
+                <Route
+                  path="Dashboard"
+                  element={ctx.isLoggedIn && <DashboardApp />}
+                ></Route>
+              }
+              {
+                <Route
+                  path="CartPage"
+                  element={ctx.isLoggedIn && <CartPage />}
+                ></Route>
+              }
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
+      </PersistGate>
     </Provider>
   );
 }

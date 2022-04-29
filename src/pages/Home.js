@@ -11,10 +11,10 @@ import AuthContext from "../store/auth-context";
 const HomePage = (props) => {
   const authCtx = useContext(AuthContext);
 
-  const state = useSelector((state) => state);
+  const { sliders, courses } = useSelector((state) => state);
   const dispatch = useDispatch();
   //   dispatch(Actions.setSliders([]));
-//   console.log({ state });
+  //   console.log({ state });
 
   //   const {
   //     state: {
@@ -43,27 +43,15 @@ const HomePage = (props) => {
         // onSlideChange={() => console.log("slide change")}
         // onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide className="swiper-slide">
-          <img
-            className="w-full  h-[80vh] object-cover"
-            src="https://images.unsplash.com/photo-1628671254495-328a0ea8d0f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1094&q=80"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <img
-            className="w-full  h-[80vh] object-cover"
-            src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <img
-            className="w-full  h-[80vh] object-cover"
-            src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            alt=""
-          />
-        </SwiperSlide>
+        {sliders.map((slide, index) => (
+          <SwiperSlide className="swiper-slide" key={`slider-homne-${index}`}>
+            <img
+              className="w-full  h-[80vh] object-cover"
+              src={slide.url}
+              alt=""
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <section className="pt-12 bg-gray-50">

@@ -53,7 +53,7 @@ const CourseAdd = (props) => {
         setEnteredPrice('');
         setEnteredDescription('');
 
-        window.location.reload();
+        // window.location.reload();
     }
     return (
         <Modal onClose={props.onClose}>
