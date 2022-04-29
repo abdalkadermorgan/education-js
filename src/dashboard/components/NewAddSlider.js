@@ -2,15 +2,12 @@ import { useState } from "react";
 import ButtonAdd from "./ButtonAdd";
 import SliderInfo from "../components/Slider/SliderInfo";
 const NewSlider = (props) => {
-  console.log(props);
-
   const [isEditing, setIsEditing] = useState(false);
 
   const saveCourseDataHandler = (enteredCourseDate) => {
     return;
     const courseData = {
       ...enteredCourseDate,
-      id: Math.random().toString(),
     };
     props.onAddCourse(courseData);
     setIsEditing(false);

@@ -2,18 +2,12 @@ import { useState } from "react"
 import ButtonAdd from "./ButtonAdd";
 import InfoGraphicInfo from "./InfoGraphic/InfoGraphicInfo";
 const NewAddInfoGraphic = (props) => {
-
-    console.log(props);
-
     const [isEditing, setIsEditing] = useState(false);
 
     const saveCourseDataHandler = (enteredCourseDate) => {
 
-
-        return;
         const courseData = {
             ...enteredCourseDate,
-            id: Math.random().toString(),
         };
         props.onAddCourse(courseData);
         setIsEditing(false);
@@ -38,7 +32,7 @@ const NewAddInfoGraphic = (props) => {
                     onSaveCourseData={saveCourseDataHandler}
                     onCancel={stopEditingHandler}
                 />
-                
+
             )}
         </div>
     );

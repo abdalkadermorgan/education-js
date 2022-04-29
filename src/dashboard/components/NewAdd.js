@@ -4,9 +4,6 @@ import ButtonAdd from "./ButtonAdd";
 
 
 const NewCourse = (props) => {
-
-    console.log(props);
-
     const [isEditing, setIsEditing] = useState(false);
 
     const saveCourseDataHandler = (enteredCourseDate) => {

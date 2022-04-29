@@ -4,11 +4,13 @@ import storage from "redux-persist/lib/storage";
 export const actionTypes = {
   SetSliders: "[SetSliders] Action",
   SetCourses: "[SetCourses] Action",
+  SetInfoGraphic: "[SetInfoGraphic] Action",
 };
 
 const initialState = {
   sliders: [],
   courses: [],
+  infographics: [],
 };
 
 export const reducer = persistReducer(
@@ -16,7 +18,7 @@ export const reducer = persistReducer(
     storage,
     key: "root",
     debug: true,
-    whitelist: ["sliders", "courses"],
+    whitelist: ["sliders", "courses", "infographics"],
   },
   (state = initialState, action) => {
     switch (action.type) {
@@ -29,6 +31,11 @@ export const reducer = persistReducer(
         const courses = action.payload.courses;
 
         return { ...state, courses };
+      }
+      case actionTypes.SetInfoGraphic: {
+        const infographics = action.payload.infographics;
+
+        return { ...state, infographics };
       }
 
       default:
@@ -49,6 +56,13 @@ export const Actions = {
     return {
       type: actionTypes.SetCourses,
       payload: { courses },
+    };
+  },
+
+  SetInfoGraphic: (infographics) => {
+    return {
+      type: actionTypes.SetInfoGraphic,
+      payload: { infographics },
     };
   },
 };

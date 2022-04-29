@@ -11,7 +11,7 @@ import AuthContext from "../store/auth-context";
 const HomePage = (props) => {
   const authCtx = useContext(AuthContext);
 
-  const { sliders, courses } = useSelector((state) => state);
+  const { sliders, courses, infographics } = useSelector((state) => state);
   const dispatch = useDispatch();
   //   dispatch(Actions.setSliders([]));
   //   console.log({ state });
@@ -40,8 +40,8 @@ const HomePage = (props) => {
         spaceBetween={50}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
       >
         {sliders.map((slide, index) => (
           <SwiperSlide className="swiper-slide" key={`slider-homne-${index}`}>
@@ -72,63 +72,65 @@ const HomePage = (props) => {
 
       <section className="pt-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-wrap justify-between pt-8 pb-16">
-            <div className="flex w-1/2 lg:w-auto py-4">
-              <div className="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-24 sm:w-24">
-                <svg
-                  className="w-8 h-8"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  ></path>
-                </svg>
+          {infographics.map((infog, index) =>
+            <div className="flex flex-wrap justify-between pt-8 pb-16">
+              <div className="flex w-1/2 lg:w-auto py-4">
+                <div className="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-24 sm:w-24">
+                  <svg
+                    className="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="sm:py-2 ml-2 sm:ml-6" key={`info-home-${index}`}>
+                  <span className="sm:text-2xl font-bold font-heading">+ </span>
+                  <span className="sm:text-2xl font-bold font-heading count">
+                    <span>{infog.course}</span>
+                  </span>
+                  <p className="text-xs sm:text-base text-blueGray-400">
+                    Courses Number
+                  </p>
+                </div>
               </div>
-              <div className="sm:py-2 ml-2 sm:ml-6">
-                <span className="sm:text-2xl font-bold font-heading">+ </span>
-                <span className="sm:text-2xl font-bold font-heading count">
-                  <span>150</span>
-                </span>
-                <p className="text-xs sm:text-base text-blueGray-400">
-                  Courses Number
-                </p>
+              <div className="flex w-1/2 lg:w-auto py-4">
+                <div className="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-24 sm:w-24">
+                  <svg
+                    className="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="sm:py-2 ml-2 sm:ml-6">
+                  <span className="sm:text-2xl font-bold font-heading">+ </span>
+                  <span className="sm:text-2xl font-bold font-heading count">
+                    <span>{infog.student}</span>
+                  </span>
+                  <span className="sm:text-2xl font-bold font-heading"> k </span>
+                  <p className="text-xs sm:text-base text-blueGray-400">
+                    Student Number
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="flex w-1/2 lg:w-auto py-4">
-              <div className="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-24 sm:w-24">
-                <svg
-                  className="w-8 h-8"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                  ></path>
-                </svg>
-              </div>
-              <div className="sm:py-2 ml-2 sm:ml-6">
-                <span className="sm:text-2xl font-bold font-heading">+ </span>
-                <span className="sm:text-2xl font-bold font-heading count">
-                  <span>58</span>
-                </span>
-                <span className="sm:text-2xl font-bold font-heading"> k </span>
-                <p className="text-xs sm:text-base text-blueGray-400">
-                  Student Number
-                </p>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
