@@ -35,7 +35,7 @@ const CourseItemForm = (props) => {
     const dispatch = useDispatch();
 
     const addCourseToCart = (course) => {
-        dispatch(Actions.SetAddedCart([...course, { ...state, id:uuid()}]));
+        dispatch(Actions.SetAddedCart(course));
         console.log("tesssst", course);
     };
 
