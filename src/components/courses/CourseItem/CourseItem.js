@@ -1,26 +1,27 @@
 import { useContext } from 'react';
+import './CourseItem.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import CartContext from '../../../store/cart-context';
+// import CartContext from '../../../store/Darfrt/cart-context';
 import CourseItemForm from './CourseItemForm';
 
 const CourseItem = (props) => {
-	const cartCtx = useContext(CartContext);
+	// const cartCtx = useContext(CartContext);
 	// console.log(props)
 	// const price = `$${props.price?.toFixed(2)}`;
 	// const desc = props.description ? props.description.substring(0, 100) : '';
 	
 	// // const price = props?.price;
-	const addToCartHandler = (amount) => {
-		cartCtx.addItem({
-			id: props.id,
-			name: props.name,
-			amount: amount,
-			price: props.price,
-			category: props.category,
-			img: props.img
-		});
-	};
+	// const addToCartHandler = (amount) => {
+	// 	cartCtx.addItem({
+	// 		id: props.id,
+	// 		name: props.name,
+	// 		amount: amount,
+	// 		price: props.price,
+	// 		category: props.category,
+	// 		img: props.img
+	// 	});
+	// };
 	
 	const { courses } = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -30,8 +31,8 @@ const CourseItem = (props) => {
 	return courses.map((course, index) => (
 		
 		<div className="bg-gray-100" key={`course-homne-${index}`}>
-			<div className="transition-all ease-in-out duration-300 hover:-translate-y-4">
-				<img src={course.urlImg} />
+			<div className="transition-all ease-in-out duration-300 hover:-translate-y-4 card-course">
+				<img src={course.urlImg} height={231} />
 				<div className="p-2">
 					<h1 className="text-gray-400 text-sm">{props.category}</h1>
 
@@ -54,7 +55,10 @@ const CourseItem = (props) => {
 
 						</div>
 						<div>
-							<CourseItemForm id={props.id} onAddToCart={addToCartHandler} />
+							<CourseItemForm course={course} 
+							
+							// onAddToCart={addToCartHandler}
+							 />
 						</div>
 					</div>
 				</div>

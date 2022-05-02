@@ -19,6 +19,22 @@ const Cart = (props) => {
 
     const dispatch = useDispatch();
     // const hasItems = dispatch.courses.length > 0;
+    
+    // const cartItems = (
+    //     <ul className={classes['cart-items']}>
+    //         {courses.map((course, index) => (
+    //             <CartItem
+    //             key={index}
+    //                 title={course.title}
+    //                 urlImg={course.urlImg}
+    //                 price={course.price}
+    //                 category={course.category}
+    //                 />
+    //         ))}
+    //     </ul>
+
+    // );
+
     const { courses } = useSelector((state) => state);
     const [state, setState] = useState({
         title: "",
@@ -26,24 +42,13 @@ const Cart = (props) => {
         catigory: "",
         price: "",
     });
-    const cartItems = (
-        <ul className={classes['cart-items']}>
-            {courses.map((course, index) => (
-                <CartItem
-                key={index}
-                    title={course.title}
-                    urlImg={course.urlImg}
-                    price={course.price}
-                    category={course.category}
-                    />
-            ))}
-        </ul>
-
-    );
 
     return (
         <Modal onClose={props.onClose}>
-            {cartItems}
+
+             <ul className={classes['cart-items']}>
+                <CartItem />
+        </ul>
             <div className={classes.total}>
                 <span>Total Aomunt</span>
                 <span>00</span>

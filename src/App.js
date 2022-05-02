@@ -11,7 +11,7 @@ import Login from "./pages/Login";
 import SingleCourse from "./pages/SingleCourse";
 import CartPage from "./pages/CartPage";
 import AuthContext from "./store/auth-context";
-import CartProvider from "./store/CartProvider";
+// import CartProvider from "./store/CartProvider";
 import CheckRouteContext from "./store/check-route-context";
 import { reducer } from "./store/store";
 import { PersistGate } from "redux-persist/integration/react";
@@ -44,7 +44,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<div></div>}>
-        <CartProvider>
+        {/* <CartProvider> */}
           <BrowserRouter>
             {cartIsShown && <Cart onClose={hideCartHandler} />}
             {checkRoute.routePath !== "/Dashboard" ? (
@@ -80,7 +80,7 @@ function App() {
               }
             </Routes>
           </BrowserRouter>
-        </CartProvider>
+        {/* </CartProvider> */}
       </PersistGate>
     </Provider>
   );

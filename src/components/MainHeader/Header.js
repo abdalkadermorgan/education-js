@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Navigation from './Navigation';
-import CartContext from '../../store/cart-context';
+// import CartContext from '../../store/Darfrt/cart-context';
 import CartItem from '../cart/CartItem';
 import './Header.css'
 import CartDropdown from './CartDropdown';
@@ -10,11 +10,11 @@ import CartDropdown from './CartDropdown';
 const Header = (props) => {
 
     // const [isActive, setActive] = useState(false);
-    const cartCtx = useContext(CartContext);
-    const hasItems = cartCtx.items.length > 0;
-    const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
-        return curNumber + item.amount;
-    }, 0);
+            // const cartCtx = useContext(CartContext);
+            // const hasItems = cartCtx.items.length > 0;
+            // const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
+            //     return curNumber + item.amount;
+            // }, 0);
     // const price = `$${cartCtx.totalAmount.toFixed(2)}`;
     // console.log(numberOfCartItems);
     // const toggleclassName = () => {
@@ -71,7 +71,11 @@ const Header = (props) => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
-                            <span className='absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center'>{numberOfCartItems}</span>
+                            <span className='absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center'>
+                                0
+                                {/* {numberOfCartItems} */}
+                                
+                                </span>
                         </button>
                         {/* <CartDropdown>
                             {hoverItems}

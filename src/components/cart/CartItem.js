@@ -1,14 +1,16 @@
 
 import { useSelector } from 'react-redux';
+import { Actions } from '../../store/store';
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
     // const price = `$${props.price.toFixed(2)}`;
     // const price = props?.price;
 
-    const { courses } = useSelector((state) => state);
 
-    return courses.map((course, index) => (
+    const { addedCart } = useSelector((state) => state);
+
+    return addedCart.map((course, index) => (
         <li className={classes['cart-item']} key={`course-homne-${index}`}>
             <div className='flex'>
                 <div className={classes['cart-item_img']}>
