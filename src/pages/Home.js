@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import AvilableCourse from "../components/courses/AvailableCourse";
+import CourseItem from "../components/courses/CourseItem/CourseItem";
 import AuthContext from "../store/auth-context";
 
 const HomePage = (props) => {
@@ -65,7 +66,7 @@ const HomePage = (props) => {
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-20">
-            <AvilableCourse />
+            <CourseItem />
           </div>
         </div>
       </section>
@@ -73,7 +74,7 @@ const HomePage = (props) => {
       <section className="pt-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {infographics.map((infog, index) =>
-            <div className="flex flex-wrap justify-between pt-8 pb-16">
+            <div className="flex flex-wrap justify-between pt-8 pb-16" key={`infographic-homne-${index}`} >
               <div className="flex w-1/2 lg:w-auto py-4">
                 <div className="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-24 sm:w-24">
                   <svg

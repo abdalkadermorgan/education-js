@@ -26,7 +26,6 @@ const cartReducer = (state, action) => {
             }
         }
     }
-
     // const removeItem = state.items.id
     // if (action.type === 'REMOVE') {
     //     // if (state.item.find(item.id) === 1) {
@@ -77,6 +76,8 @@ const cartReducer = (state, action) => {
     // }
     // return defaultCartState;
     // return state
+    
+
 };
 
 const CartProvider = (props) => {

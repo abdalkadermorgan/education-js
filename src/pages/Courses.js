@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../components/MainHeader/Header";
 import AvilableCourse from "../components/courses/AvailableCourse";
+import CourseItem from "../components/courses/CourseItem/CourseItem";
 const Courses = () => {
 	return (
 		<div>
@@ -34,7 +35,7 @@ const Courses = () => {
 					</div>
 
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
-						<AvilableCourse />
+						<CourseItem />
 					</div>
 
 					{/* <!-- This example requires Tailwind CSS v2.0+ --> */}

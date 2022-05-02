@@ -3,25 +3,16 @@ import TableInfo from '../components/Tables/TableInfo';
 import NewCourse from '../components/NewAdd';
 
 const TableCard = (props) => {
-    const [items, setitems] = useState([]);
+    // const [items, setitems] = useState([]);
 
-    useEffect(() => {
-        const items = JSON.parse(localStorage.getItem("CourseInfo"));
-        if (items) {
-            setitems(items);
-        }
+    // useEffect(() => {
+    //     const items = JSON.parse(localStorage.getItem("CourseInfo"));
+    //     if (items) {
+    //         setitems(items);
+    //     }
         
-    }, [])
-    
-    const CourseTable = items.map((course, index) => (
-        <TableInfo 
-        key= {index}
-        id={course.id}
-        name={course.name}
-        price={course.price}
-        category={course.category}
-        />
-        ));
+    // }, [])
+
     return (
         <div className=' w-full'>
             <div className=' mx-auto pt-10   xl:px-16'>
@@ -35,21 +26,27 @@ const TableCard = (props) => {
                                     <thead className="bg-gray-100 dark:bg-gray-700">
                                         <tr>
                                             <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                                Course Name
+                                                Title
                                             </th>
                                             <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                                Category
+                                                Image
                                             </th>
                                             <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                                                Price
+                                                Catigory
                                             </th>
-                                            <th scope="col" className="p-4">
-                                                <span className="sr-only">add</span>
+                                            <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            Price
+                                            </th>
+                                            <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            Discounts
+                                            </th>
+                                            <th scope="col" className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                                        {CourseTable}
+                                        <TableInfo />
                                     </tbody>
                                 </table>
                             </div>
