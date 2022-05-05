@@ -4,10 +4,15 @@ import Navigation from './Navigation';
 import CartItem from '../cart/CartItem';
 import './Header.css'
 import CartDropdown from './CartDropdown';
+import { useSelector } from 'react-redux';
 
 
 
 const Header = (props) => {
+
+
+    const { cart } = useSelector((state) => state);
+
 
     // const [isActive, setActive] = useState(false);
             // const cartCtx = useContext(CartContext);
@@ -72,7 +77,7 @@ const Header = (props) => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
                             <span className='absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center'>
-                                0
+                                {cart.length}
                                 {/* {numberOfCartItems} */}
                                 
                                 </span>

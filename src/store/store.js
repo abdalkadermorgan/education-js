@@ -11,7 +11,7 @@ export const actionTypes = {
 const initialState = {
   sliders: [],
   courses: [],
-  addedCart: [],
+  cart: [],
   infographics: [],
 };
 
@@ -20,7 +20,7 @@ export const reducer = persistReducer(
     storage,
     key: "root",
     debug: true,
-    whitelist: ["sliders", "courses", "infographics","addedCart"],
+    whitelist: ["sliders", "courses", "infographics","cart"],
   },
   (state = initialState, action) => {
     switch (action.type) {
@@ -40,9 +40,9 @@ export const reducer = persistReducer(
         return { ...state, infographics };
       }
       case actionTypes.SetAddedCart: {
-        const addedCart = action.payload.addedCart;
+        const cart = action.payload.cart;
 
-        return { ...state, addedCart };
+        return { ...state, cart };
       }
 
       default:
@@ -73,10 +73,10 @@ export const Actions = {
     };
   },
 
-  SetAddedCart: (addedCart) => {
+  SetAddedCart: (cart) => {
     return {
       type: actionTypes.SetAddedCart,
-      payload: { addedCart },
+      payload: { cart },
     };
   },
 };

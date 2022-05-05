@@ -1,47 +1,15 @@
-import { useContext, useState } from 'react';
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Modal from '../UI/Modal';
-import CartItem from './CartItem'
 import classes from './Cart.module.css';
-import * as store from '../../store/store';
-import { useDispatch, useSelector } from 'react-redux';
+import CartItem from './CartItem';
 
 const Cart = (props) => {
 
-    // const cartCtx = useContext(CartContext);
-    // const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
-
-    // const hasItems = cartCtx.items.length > 0;
-
-    // const courseItemRemoveHandler = id => { };
-
-    // const courseItemAddHandler = item => { };
-
-    const dispatch = useDispatch();
-    // const hasItems = dispatch.courses.length > 0;
-    
-    // const cartItems = (
-    //     <ul className={classes['cart-items']}>
-    //         {courses.map((course, index) => (
-    //             <CartItem
-    //             key={index}
-    //                 title={course.title}
-    //                 urlImg={course.urlImg}
-    //                 price={course.price}
-    //                 category={course.category}
-    //                 />
-    //         ))}
-    //     </ul>
-
-    // );
-
     const { courses } = useSelector((state) => state);
-    const [state, setState] = useState({
-        title: "",
-        urlImg: "",
-        catigory: "",
-        price: "",
-    });
+    console.log("course =>", courses);
+    const totalAmount =+ courses.map(e => e.price);
+    console.log("Total Amount =>",parseInt(totalAmount));
 
     return (
         <Modal onClose={props.onClose}>

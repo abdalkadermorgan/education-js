@@ -1,27 +1,9 @@
-import { useContext } from 'react';
-import './CourseItem.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-// import CartContext from '../../../store/Darfrt/cart-context';
+import './CourseItem.css';
 import CourseItemForm from './CourseItemForm';
 
 const CourseItem = (props) => {
-	// const cartCtx = useContext(CartContext);
-	// console.log(props)
-	// const price = `$${props.price?.toFixed(2)}`;
-	// const desc = props.description ? props.description.substring(0, 100) : '';
-	
-	// // const price = props?.price;
-	// const addToCartHandler = (amount) => {
-	// 	cartCtx.addItem({
-	// 		id: props.id,
-	// 		name: props.name,
-	// 		amount: amount,
-	// 		price: props.price,
-	// 		category: props.category,
-	// 		img: props.img
-	// 	});
-	// };
 	
 	const { courses } = useSelector((state) => state);
 	const dispatch = useDispatch();
@@ -37,8 +19,9 @@ const CourseItem = (props) => {
 					<h1 className="text-gray-400 text-sm">{props.category}</h1>
 
 					<h1 className="mb-2">
-						<Link to="SingleCourse" className="text-xl hover:text-red-500">
+						<Link to={`/course/${course.id}`}  className="text-xl hover:text-red-500" >
 							{course.title}
+							
 						</Link>
 					</h1>
 

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import React, { useContext, useState } from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import Cart from "./components/cart/Cart";
 import Header from "./components/MainHeader/Header";
 import DashboardApp from "./dashboard/DashboardApp";
@@ -41,6 +41,8 @@ function App() {
     setCartIsShown(false);
   };
 
+  let { id } = useParams();
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<div></div>}>
@@ -63,9 +65,12 @@ function App() {
                 element={ctx.isLoggedIn && <Courses />}
               ></Route>
               <Route
-                path="Courses/SingleCourse"
-                element={ctx.isLoggedIn && <SingleCourse />}
-              ></Route>
+                path="course/:id"
+                element={ctx.isLoggedIn && <SingleCourse /> }
+              >
+
+          
+              </Route>
               {
                 <Route
                   path="Dashboard"
