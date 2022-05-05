@@ -67,7 +67,7 @@ const CourseAdd = (props) => {
 					<input
 						type="number"
 						id="small-input"
-						onChange={(e) => setState((s) => ({ ...s, price: e.target.value }))}
+						onChange={(e) => setState((s) => ({ ...s, price: parseInt(e.target.value) }))}
 						value={state.price}
 						className="block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 border-white-600 "
 					/>

@@ -5,36 +5,6 @@ import { Actions } from "../../../store/store";
 import ButtonEdit from "../ButtonEdit";
 
 const TableInfo = (props) => {
-    // const price = `$${props.price.toFixed(2)}`;
-    // let courses = new Array();
-    // courses = JSON.parse(localStorage.getItem('CourseInfo'));
-
-    // const saveCourseDataHandler = (enteredCourseDate) => {
-    //     setIsEditing(false);
-    // };
-
-    // const [isEditing, setIsEditing] = useState(false);
-    // const startEditingHandler = () => {
-    //     setIsEditing(true);
-    // };
-
-    // const stopEditingHandler = () => {
-    //     setIsEditing(false);
-    // };
-
-
-    // const removeItems = (id) => {
-    //     console.log("id => ", id)
-
-    //     if (id) {
-    //         let new_courses = courses.filter((value) => value.id != id);
-
-    //         console.log(new_courses)
-
-    //         localStorage.setItem("CourseInfo", JSON.stringify(new_courses));
-    //         // window.location.reload();
-    //     }
-    // }
 
     const { courses } = useSelector((state) => state);
     const dispatch = useDispatch();

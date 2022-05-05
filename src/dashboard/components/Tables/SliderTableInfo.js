@@ -52,7 +52,6 @@ const SliderTableInfo = (props) => {
   };
 
   return sliders.map((slider, index) => (
-    < >
       <tr
         className="hover:bg-gray-100 dark:hover:bg-gray-700"
         key={`slider-${index}`}
@@ -141,7 +140,6 @@ const SliderTableInfo = (props) => {
         </td>
       </tr>
 
-    </>
   ));
 };
 
